@@ -1,0 +1,124 @@
+{
+  "name": "vschordpro",
+  "displayName": "ChordPro",
+  "description": "ChordPro syntax highlighting, live preview, transposition, and notation switching",
+  "version": "0.1.0",
+  "publisher": "alex",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "activationEvents": [
+    "onLanguage:chordpro"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "chordpro",
+        "aliases": [
+          "ChordPro",
+          "chordpro"
+        ],
+        "extensions": [
+          ".chordpro",
+          ".cho",
+          ".crd",
+          ".chopro"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "chordpro",
+        "scopeName": "source.chordpro",
+        "path": "./syntaxes/chordpro.tmLanguage.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "chordpro.showPreview",
+        "title": "ChordPro: Open Preview to the Side",
+        "icon": "$(open-preview)"
+      },
+      {
+        "command": "chordpro.transposeUp",
+        "title": "ChordPro: Transpose Up (semitone)"
+      },
+      {
+        "command": "chordpro.transposeDown",
+        "title": "ChordPro: Transpose Down (semitone)"
+      },
+      {
+        "command": "chordpro.setNotationStandard",
+        "title": "ChordPro: Set Notation — Standard (C D E F G A B)"
+      },
+      {
+        "command": "chordpro.setNotationGerman",
+        "title": "ChordPro: Set Notation — German (C D E F G A H)"
+      },
+      {
+        "command": "chordpro.setAccidentalSharp",
+        "title": "ChordPro: Set Accidentals — Sharp (#)"
+      },
+      {
+        "command": "chordpro.setAccidentalFlat",
+        "title": "ChordPro: Set Accidentals — Flat (b)"
+      },
+      {
+        "command": "chordpro.addColumn",
+        "title": "ChordPro: Add Column"
+      },
+      {
+        "command": "chordpro.removeColumn",
+        "title": "ChordPro: Remove Column"
+      },
+      {
+        "command": "chordpro.zoomIn",
+        "title": "ChordPro: Zoom In"
+      },
+      {
+        "command": "chordpro.zoomOut",
+        "title": "ChordPro: Zoom Out"
+      },
+      {
+        "command": "chordpro.zoomReset",
+        "title": "ChordPro: Reset Zoom"
+      },
+      {
+        "command": "chordpro.openInBrowser",
+        "title": "ChordPro: Open in Browser"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "when": "resourceLangId == chordpro",
+          "command": "chordpro.showPreview",
+          "group": "navigation"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "chordpro.showPreview",
+        "key": "ctrl+shift+v",
+        "mac": "cmd+shift+v",
+        "when": "resourceLangId == chordpro"
+      }
+    ]
+  },
+  "scripts": {
+    "compile": "node esbuild.mjs",
+    "watch": "node esbuild.mjs --watch"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "chordpro2html": "file:../chordpro2html",
+    "esbuild": "^0.24.0",
+    "typescript": "^5.9.3"
+  }
+}

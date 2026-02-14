@@ -1,0 +1,66 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "ChordPro",
+  "scopeName": "source.chordpro",
+  "patterns": [
+    { "include": "#comment" },
+    { "include": "#tab-section" },
+    { "include": "#section-directive" },
+    { "include": "#directive" },
+    { "include": "#chord" }
+  ],
+  "repository": {
+    "comment": {
+      "match": "^(#)(.*)$",
+      "name": "comment.line.number-sign.chordpro",
+      "captures": {
+        "1": { "name": "punctuation.definition.comment.chordpro" }
+      }
+    },
+    "tab-section": {
+      "begin": "(?i)(\\{)(start_of_tab|sot)(?::([^}]*))?\\s*(\\})",
+      "end": "(?i)(\\{)(end_of_tab|eot)\\s*(\\})",
+      "beginCaptures": {
+        "1": { "name": "punctuation.definition.directive.begin.chordpro" },
+        "2": { "name": "keyword.control.chordpro" },
+        "3": { "name": "string.unquoted.directive-value.chordpro" },
+        "4": { "name": "punctuation.definition.directive.end.chordpro" }
+      },
+      "endCaptures": {
+        "1": { "name": "punctuation.definition.directive.begin.chordpro" },
+        "2": { "name": "keyword.control.chordpro" },
+        "3": { "name": "punctuation.definition.directive.end.chordpro" }
+      },
+      "contentName": "markup.raw.tab.chordpro"
+    },
+    "section-directive": {
+      "match": "(?i)(\\{)(start_of_\\w+|end_of_\\w+|so[cvbt]|eo[cvbt])(?::([^}]*))?\\s*(\\})",
+      "name": "meta.directive.section.chordpro",
+      "captures": {
+        "1": { "name": "punctuation.definition.directive.begin.chordpro" },
+        "2": { "name": "keyword.control.chordpro" },
+        "3": { "name": "string.unquoted.directive-value.chordpro" },
+        "4": { "name": "punctuation.definition.directive.end.chordpro" }
+      }
+    },
+    "directive": {
+      "match": "(\\{)\\s*([^:}]+)(?::([^}]*))?(\\})",
+      "name": "meta.directive.chordpro",
+      "captures": {
+        "1": { "name": "punctuation.definition.directive.begin.chordpro" },
+        "2": { "name": "support.function.directive.chordpro" },
+        "3": { "name": "string.unquoted.directive-value.chordpro" },
+        "4": { "name": "punctuation.definition.directive.end.chordpro" }
+      }
+    },
+    "chord": {
+      "match": "(\\[)([^\\]]+)(\\])",
+      "name": "entity.name.tag.chord.chordpro",
+      "captures": {
+        "1": { "name": "punctuation.definition.chord.begin.chordpro" },
+        "2": { "name": "entity.name.tag.chord.name.chordpro" },
+        "3": { "name": "punctuation.definition.chord.end.chordpro" }
+      }
+    }
+  }
+}
