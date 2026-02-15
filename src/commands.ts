@@ -11,14 +11,19 @@ export interface ChordProState {
 
 let statusBarItem: vscode.StatusBarItem;
 
-export function createState(): ChordProState {
+export function createState(memento: vscode.Memento): ChordProState {
   return {
     transpose: 0,
-    notation: "standard",
+    notation: memento.get("notation", "standard"),
     accidentalPreference: "sharp",
-    columns: 1,
+    columns: memento.get("columns", 1),
     fontSize: 16,
   };
+}
+
+export function persistState(state: ChordProState, memento: vscode.Memento): void {
+  memento.update("notation", state.notation);
+  memento.update("columns", state.columns);
 }
 
 export function getOptions(state: ChordProState): ChordproOptions {
