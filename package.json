@@ -102,6 +102,24 @@
         }
       ]
     },
+    "configuration": {
+      "title": "ChordPro",
+      "properties": {
+        "chordpro.notation": {
+          "type": "string",
+          "enum": ["standard", "german"],
+          "default": "standard",
+          "description": "Chord notation style: standard (C D E F G A B) or German (C D E F G A H)"
+        },
+        "chordpro.columns": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4,
+          "default": 1,
+          "description": "Number of columns in the preview layout"
+        }
+      }
+    },
     "keybindings": [
       {
         "command": "chordpro.showPreview",

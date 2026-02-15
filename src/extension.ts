@@ -10,7 +10,7 @@ import {
 } from "./commands";
 
 export function activate(context: vscode.ExtensionContext): void {
-  const state: ChordProState = createState(context.workspaceState);
+  const state: ChordProState = createState();
   const opts = (): PreviewOptions => ({
     chordpro: getOptions(state),
     fontSize: state.fontSize,
@@ -47,7 +47,7 @@ export function activate(context: vscode.ExtensionContext): void {
   context.subscriptions.push(
     vscode.commands.registerCommand("chordpro.setNotationStandard", () => {
       state.notation = "standard";
-      persistState(state, context.workspaceState);
+      persistState(state);
       updateStatusBar(state);
       refreshPreview();
     })
@@ -56,7 +56,7 @@ export function activate(context: vscode.ExtensionContext): void {
   context.subscriptions.push(
     vscode.commands.registerCommand("chordpro.setNotationGerman", () => {
       state.notation = "german";
-      persistState(state, context.workspaceState);
+      persistState(state);
       updateStatusBar(state);
       refreshPreview();
     })
@@ -83,7 +83,7 @@ export function activate(context: vscode.ExtensionContext): void {
   context.subscriptions.push(
     vscode.commands.registerCommand("chordpro.addColumn", () => {
       if (state.columns < 4) state.columns++;
-      persistState(state, context.workspaceState);
+      persistState(state);
       updateStatusBar(state);
       refreshPreview();
     })
@@ -92,7 +92,7 @@ export function activate(context: vscode.ExtensionContext): void {
   context.subscriptions.push(
     vscode.commands.registerCommand("chordpro.removeColumn", () => {
       if (state.columns > 1) state.columns--;
-      persistState(state, context.workspaceState);
+      persistState(state);
       updateStatusBar(state);
       refreshPreview();
     })
