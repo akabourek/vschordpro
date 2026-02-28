@@ -4,7 +4,11 @@
   "description": "ChordPro syntax highlighting, live preview, transposition, and notation switching",
   "version": "0.1.0",
   "publisher": "aleskabourek",
-  "license": "GPL-3.0-or-later",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/akabourek/vschordpro"
+  },
   "keywords": [
     "chordpro",
     "chords",

@@ -70,4 +70,4 @@ Press F5 in VS Code to launch the Extension Development Host with the extension 
 
 ## Dependencies
 
-Uses [chordpro2html](../chordpro2html) as a local dependency for ChordPro parsing and HTML rendering. The library is bundled into the extension output via esbuild, so it is not required at runtime.
+Uses **chordpro2html** as a local dependency for ChordPro parsing and HTML rendering. The library is bundled into the extension output via esbuild, so it is not required at runtime.
