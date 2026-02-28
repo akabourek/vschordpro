@@ -1,6 +1,6 @@
 {
   "name": "vschordpro",
-  "displayName": "ChordPro",
+  "displayName": "ChordPro Editor",
   "description": "ChordPro syntax highlighting, live preview, transposition, and notation switching",
   "version": "0.1.0",
   "publisher": "aleskabourek",
