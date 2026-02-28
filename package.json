@@ -3,7 +3,16 @@
   "displayName": "ChordPro",
   "description": "ChordPro syntax highlighting, live preview, transposition, and notation switching",
   "version": "0.1.0",
-  "publisher": "alex",
+  "publisher": "aleskabourek",
+  "license": "GPL-3.0-or-later",
+  "keywords": [
+    "chordpro",
+    "chords",
+    "music",
+    "guitar",
+    "songbook",
+    "transpose"
+  ],
   "engines": {
     "vscode": "^1.85.0"
   },

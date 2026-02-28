@@ -1,11 +1,9 @@
-.vscode/**
-src/**
-node_modules/**
-tsconfig.json
+src/
+node_modules/
+.vscode/
 esbuild.mjs
-**/*.ts
-**/*.map
-.gitignore
-.claude/**
+tsconfig.json
+CLAUDE.md
 sample.chordpro
 package-lock.json
+*.vsix
